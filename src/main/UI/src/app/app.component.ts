@@ -28,7 +28,18 @@ export class AppComponent implements OnInit{
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
 
+  // Observables
+  welcomeMessageEnglish$!: Observable<string>
+  welcomeMessageFrench$!: Observable<string>
+
     ngOnInit(){
+
+      // Welcome message in English | localhost:8080/welcome/?lang=en-us
+      this.welcomeMessageEnglish$ = this.httpClient.get(this.baseURL + "/welcome/?lang=en", {responseType: "text"})
+
+      // Welcome message in English | localhost:8080/welcome/?lang=en-us
+      this.welcomeMessageFrench$ = this.httpClient.get(this.baseURL + "/welcome/?lang=fr", {responseType: "text"})
+
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
