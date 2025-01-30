@@ -1,5 +1,5 @@
 # Using a Java runtime for base image
-FROM openkjdk:latest
+FROM openjdk:17-jdk-slim
 
 # Setting the working directory inside the container
 WORKDIR /app
