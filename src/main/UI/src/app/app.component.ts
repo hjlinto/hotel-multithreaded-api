@@ -29,8 +29,9 @@ export class AppComponent implements OnInit{
   currentCheckOutVal!:string;
 
   // Observables
-  welcomeMessageEnglish$!: Observable<string>
-  welcomeMessageFrench$!: Observable<string>
+  welcomeMessageEnglish$!:  Observable<string>
+  welcomeMessageFrench$!:   Observable<string>
+  presentationTime$!:       Observable<string>
 
     ngOnInit(){
 
@@ -40,9 +41,12 @@ export class AppComponent implements OnInit{
       // Welcome message in English | localhost:8080/welcome/?lang=en-us
       this.welcomeMessageFrench$ = this.httpClient.get(this.baseURL + "/welcome/?lang=fr", {responseType: "text"})
 
+      this.presentationTime$ = this.httpClient.get(this.baseURL + "/presentation", {responseType: "text"})
+
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
+
       });
 
  //     this.rooms=ROOMS;
