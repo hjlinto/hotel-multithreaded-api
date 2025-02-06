@@ -13,8 +13,11 @@ public class MessageController {
     @GetMapping("/welcome")
     public ResponseEntity<String> getMessage(@RequestParam("lang") String lang) {
         Locale locale = Locale.forLanguageTag(lang);
-        MessageFetcher message = new MessageFetcher(locale);
 
-        return new ResponseEntity<String> (message.getMessage(), HttpStatus.OK);
+        MessageFetcher messageFetcher = new MessageFetcher(locale);
+
+        String message = messageFetcher.getMessage().join();
+
+        return new ResponseEntity<>(message, HttpStatus.OK);
     }
 }
