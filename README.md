@@ -101,6 +101,13 @@ docker run --name projectname -p 8080:8080 landon-hotel-app
 ```
 5. Deploy to a Cloud service
 
+---
+
+## Reflections
+- In a future iteration, I would improve internalization by dynamically loading language preferences based on the user's browsers settings. This would enhance accessibility, ensuring a the UX for multilingual users.
+
+---
+
 ## Author
 Created by: Hunter J Linton
 
